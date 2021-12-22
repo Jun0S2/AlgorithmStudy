@@ -38,6 +38,7 @@ public class 신규아이디추천 {
 		
 	
 		//step 4 : 마침표가 처음이나 끝에 있다면 제거
+		if(sb.length()>1 && sb.charAt(sb.length()-1)=='.')sb.setLength(sb.length()-1); //끝
 		if(sb.charAt(0)=='.') sb.deleteCharAt(0);	//처음 
 
 		
