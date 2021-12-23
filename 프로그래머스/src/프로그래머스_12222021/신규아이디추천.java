@@ -1,5 +1,8 @@
 package 프로그래머스_12222021;
-
+/**
+ * @author 박혜준
+ * 프로그래머스 레벨 1 문제
+ * */
 public class 신규아이디추천 {
 
 	public static void main(String[] args) {
