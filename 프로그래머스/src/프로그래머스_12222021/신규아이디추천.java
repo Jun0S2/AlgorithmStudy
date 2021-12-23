@@ -1,4 +1,4 @@
-package 프로그래머스_12212022;
+package 프로그래머스_12222021;
 
 public class 신규아이디추천 {
 
