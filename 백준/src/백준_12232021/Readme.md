@@ -15,7 +15,12 @@ maxHeap에는 중앙값 보다 작은 값들을 , minHeap에는 중앙값 보다
 
 위 알고리즘으로 [1,2,3,4,5]의 중앙 값을 구하는 과정은 아래와 같다.
 
-![자료구조 알고리즘 - 중간값구하기](https://user-images.githubusercontent.com/36508552/147250501-65ca1bb9-4741-4b13-bbe5-416639623d5e.png)
+![자료구조 알고리즘 - 중간값구하기](https://user-images.githubusercontent.com/36508552/147251215-82e32d0f-6ee9-429c-9f1d-a3b3ed20bdba.png)
+
+
+## 정리
+
+![1](https://user-images.githubusercontent.com/36508552/147251133-083e54ae-7a95-41ca-a762-371fbf96d5b9.png)
 
 
 
