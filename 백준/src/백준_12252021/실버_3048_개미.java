@@ -5,7 +5,9 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
+/**@author : June Park
+* 12/25/2021 , 12/27/2021
+*/
 public class 실버_3048_개미 {
 	/**Ants
 	 * name : 개미의 letters
