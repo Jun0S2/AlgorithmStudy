@@ -12,6 +12,8 @@ import java.util.StringTokenizer;
  * @author June Park
  * Gold 2
  * 2048 시뮬레이션 : 큐를 사용했을 때가 보드 2개 사용한 어제 풀이보다 깔끔하고 쉽다
+ * 삼성 기출 문제
+ * 풀이 시간 : 4시간
  *
  */
 public class 골드_12100_2048_EASY {
