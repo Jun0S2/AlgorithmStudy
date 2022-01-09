@@ -70,7 +70,7 @@ static boolean flag;
 						board[col][i] = 0;
 					}
 					else {
-						if(flag) {print();flag=false;col--;continue;}
+						if(flag) {flag=false;col--;continue;}
 					}
 				}
 				col--;
