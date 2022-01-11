@@ -13,7 +13,7 @@ import java.util.Stack;
  * 구글링 후, stack을 왼쪽 오른쪽으로 사용하는 방식을 찾음 :https://minhamina.tistory.com/17 참고*
  * 스택은 push 와 pop 이 각 각 O(n)이기 때문에 시간초과를 피할 수 있었음
  */
-public class 실버_에디터 {
+public class 실버_1406_에디터 {
 public static void main(String[] args) throws Exception {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
