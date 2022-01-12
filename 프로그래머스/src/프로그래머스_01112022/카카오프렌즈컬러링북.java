@@ -60,7 +60,7 @@ public class 카카오프렌즈컬러링북 {
 	}
 
 	static boolean[][] visited;
-	private static void solution(int m, int n, int[][] picture) {
+	private static int[] solution(int m, int n, int[][] picture) {
 		int numbersOfArea = 0;
 		int maxSizeOfOneArea = 0;
 		visited = new boolean[m][n];
@@ -76,6 +76,10 @@ public class 카카오프렌즈컬러링북 {
 		}
 		System.out.println(numbersOfArea);
 		System.out.println(maxSizeOfOneArea);
+		   int[] answer = new int[2];
+	        answer[0] = numbersOfArea;
+	        answer[1] = maxSizeOfOneArea;
+	        return answer;
 		
 	}
 
