@@ -6,7 +6,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
+/**
+ * 시간초과 해결 방법  : while(true) -> K>0 으로 바꿈
+ * @author June Park
+ * 골드 5
+ * 시뮬레이션으로 풀이
+ * 맵은 1D array로 내구도를 관리. 로봇은 arraylist를  사용하여 관리
+ * 1. rotate map & robot -> check if robot reaches N
+ * 2. move robot -> check if robot reaches N
+ * 3. add robot on belt
+ * 4. repeats
+ *
+ */
 public class 골드_20055_컨베이어벨트위의로봇 {
 	static int N, K;	//맵 사이즈, 다쓴개수최대치
 	static int[] map;	//내구도 맵
@@ -31,17 +42,12 @@ public class 골드_20055_컨베이어벨트위의로봇 {
 	}
 	public static int simulation () {
 		int stage = 0;
-		while(true) {//step 4 : 내구도가 0 인 칸의 개수가 K 개 이상이라면 반복
-			//1. rotate
-			rotate();
-			//2. move
-			move();
-			//3. 로봇 올림
-			setRobot();
+		while(K>0) {//step 4 : 내구도가 0 인 칸의 개수가 K 개 이상이라면 반복
+			rotate();//1. rotate
+			move();//2. move
+			setRobot();//3. 로봇 올림
 			stage++;//단계++
-			if(exit()==K) break;
 		}
-		//System.out.println(stage);
 		return stage;
 	}
 	/**
@@ -83,6 +89,7 @@ public class 골드_20055_컨베이어벨트위의로봇 {
 				if(isClear(1) && map[1]>0) {
 					robot.set(i, 1);//로봇 이동
 					map[1]--;		//내구도 감소
+					if(map[1]==0)K--;
 				}
 			}
 			//일반 경우
@@ -90,6 +97,7 @@ public class 골드_20055_컨베이어벨트위의로봇 {
 				if(isClear(curr_robot_index+1) &&  map[curr_robot_index+1]>0) {//이동하려는 위치 비어있고 내구도 남아있음
 					robot.set(i, curr_robot_index+1); //로봇 이동
 					map[curr_robot_index+1]--;			//내구도 감소
+					if(map[curr_robot_index+1]==0) K--;
 				}
 			}
 		}
@@ -104,6 +112,7 @@ public class 골드_20055_컨베이어벨트위의로봇 {
 		if(map[1]>0) {
 			map[1]--;
 			robot.add(1);//1번 위치에 올림
+			if(map[1]==0)K--;
 		}
 	}
 	/**
@@ -117,13 +126,6 @@ public class 골드_20055_컨베이어벨트위의로봇 {
 			if(robot.get(i)== index) return false;
 		}
 		return true;
-	}
-	public static int exit() {
-		int cnt = 0;
-		for(int i = 1 ; i<=2*N ; i++) {
-			if(map[i]==0)cnt++;
-		}
-		return cnt;
 	}
 	/**
 	 * 로봇이 내리는 메서드 
@@ -139,9 +141,9 @@ public class 골드_20055_컨베이어벨트위의로봇 {
 			}
 		}
 	}
-/**Utilities
- * 
- */
+	/**Utilities
+	 * 
+	 */
 	public static void printRobot() {
 		System.out.println("RObot 위치 ");
 		for(int i = 0 ; i< robot.size() ; i++ ) {
