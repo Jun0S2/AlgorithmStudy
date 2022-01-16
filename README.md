@@ -10,3 +10,10 @@
 |   6	|  숫자카드2 	| [숫자카드2](./AlgorithmStudy/백준/src/백준_01072022/실버_10816_숫자카드2.java)	|    [문제링크](https://www.acmicpc.net/problem/10816) 	|   01/07/2022  	|   -	|
 |   7	|  큐 	|  [큐](./AlgorithmStudy/백준/src/백준_01072022/실버_10845_큐.java) 	|    [문제링크](https://www.acmicpc.net/problem/10845) 	|  01/07/2022   	|   	- |
 |   8|  셀프넘버 	|  [셀프넘버](./AlgorithmStudy/백준/src/백준_01072022/실버_4673_셀프넘버.java) 	|    [문제링크](https://www.acmicpc.net/problem/4673) 	| 01/07/2022    	|  -  	|
+|   9	| 2048(EASY)  	| [2048_easy:실패](./AlgorithmStudy/백준/src/백준_01082022/골드_12100_2048_EASY.java) 	|   [문제링크](https://www.acmicpc.net/problem/12100)  	|  1/08/2022 	|   4hrs	|
+|   10	|   2048(EASY)	| [2048_easy](./AlgorithmStudy/백준/src/백준_01092022/골드_12100_2048_EASY.java)  	|  [문제링크](https://www.acmicpc.net/problem/12100)  |  01/09/2022  | 5hrs |
+|   11	|  시험감독 	|  [시험감독](./AlgorithmStudy/백준/src/백준_01102022/브론즈_13458_시험감독.java) 	|   [문제링크](https://www.acmicpc.net/problem/13458) 	|  01/10/2022 	|   15min	|
+|   12	|  에디터 	| [에디터](./AlgorithmStudy/백준/src/백준_01102022/실버_1406_에디터.java)  	|    [문제링크](https://www.acmicpc.net/problem/1406)  	|  01/10/2022 	|  1.5hrs 	|
+|   	|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|   	|
