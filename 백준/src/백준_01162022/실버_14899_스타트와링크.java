@@ -1,7 +1,9 @@
 package 백준_01162022;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -10,12 +12,10 @@ public class 실버_14899_스타트와링크 {
 	static int min = Integer.MAX_VALUE;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		N = Integer.parseInt(br.readLine());
 		
 		skills = new int[N+1][N+1];
-		team1 = new int[N/2+1];
-		team2 = new int[N/2+1];
-		
 		visited = new boolean[N+1];
 		
 		StringTokenizer st;
@@ -26,69 +26,55 @@ public class 실버_14899_스타트와링크 {
 			}
 		}
 		
-		combination(1);
-		System.out.println(min);
-	//	System.out.println("경우의 수 : "+tot);
+		combination(1,1);
+		bw.write(Integer.toString(min));
+		bw.flush();
+		
 	}
-	static int team1[], team2[];
 	static boolean visited[];
 	/**
 	 * combination  : 1번쨰 사람 ~ N번쨰 사람 -> 반명 뽑아서 조합 구하고 나머지 반명도 left out으로 뽑으면..
 	 * 그 후에 브루투포스로 능력치 더하면 되고 min update
 	 */
-	public static void combination(int depth) {
+	static int sum1,sum2;
+	public static void combination(int start, int depth) {
 		if(depth == N/2+1) {
-			leftTeam();
-			depth = 1;//초기화	
-			tot++;
+			//System.out.println(Arrays.toString(visited));
+			int diff = Team();
+			if(diff==0) {System.out.println("0"); System.exit(0);}
+			min = diff<min? diff:min;
 			return;
 		}
-		for(int i = 1; i <= N ; i++) {
+		
+		for(int i = start ;i <= N ; i++) {
 			if(visited[i])continue;
-			team1[depth] = i;
 			visited[i] = true;
-			combination(depth+1);
-			visited[i] = false;
+			combination(i+1 , depth+1);
+			visited[i] = false; 
 		}
+		
 	}
-	static int tot = 0;
-	/**
-	 * 남은 팀원들 구하는 메서드 
-	 */
-	public static void leftTeam() {
-		int cnt = 1;
-		//visited가 false 인 애들
-		for(int i = 1 ; i<= N ; i++) if(!visited[i]) {team2[cnt++]=i;}
-		calculate();
 
-	}
 	/**
-	 * 스킬합 계산
+	//team 1 : visited가 true인 경우
+	//team 2 : visited가 false 인 경운
+	 * @return 
 	 */
-	public static void calculate() {
-		int t1 = 0, t2 = 0;
-		//일단 team1 의 합계 계산해보자
-		for(int i = 1 ; i <=N ; i++) {
-			for(int j = 1; j <= N ; j++) {
-				if(i==j)continue;
-				if(have(team1,i) && have(team1,j))t1+=skills[i][j];
-				
-				if(have(team2,i) && have(team2,j))//	if(team2.contains(i) && team2.contains(j)) 
-				{
-					t2+= skills[i][j];
+	public static int Team() {
+		int t1= 0 , t2 = 0;
+		for(int i = 1; i <= N ; i ++) {
+			for(int j = i+1; j<= N ; j++) {
+				if(visited[i] && visited[j]) {//team1
+					t1+=(skills[i][j]+skills[j][i]);
+				}
+				else if(!visited[i]&& !visited[j]) { //team2
+					t2+=(skills[i][j]+skills[j][i]);	
 				}
 			}
 		}
-//		System.out.println("team1 : "+team1.toString());
-//		System.out.println("team2 : "+team1.toString());
-		min = Math.abs(t1-t2)<min ? Math.abs(t1-t2)  : min;
+		return Math.abs(t1-t2);
+	}
+	
 
-	}
-	public static boolean have(int[] arr, int num) {
-		for(int i = 1 ; i<arr.length ; i++) {
-			if(arr[i]==num)return true;
-		}
-		return false;
-	}
 
 }
