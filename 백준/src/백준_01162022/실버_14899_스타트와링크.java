@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class 실버_14899_스타트와링크 {
@@ -39,7 +38,6 @@ public class 실버_14899_스타트와링크 {
 	static int sum1,sum2;
 	public static void combination(int start, int depth) {
 		if(depth == N/2+1) {
-			//System.out.println(Arrays.toString(visited));
 			int diff = Team();
 			if(diff==0) {System.out.println("0"); System.exit(0);}
 			min = diff<min? diff:min;
