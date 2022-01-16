@@ -14,6 +14,6 @@
 |   10	|   2048(EASY)	| [2048_easy](./AlgorithmStudy/백준/src/백준_01092022/골드_12100_2048_EASY.java)  	|  [문제링크](https://www.acmicpc.net/problem/12100)  |  01/09/2022  | 5hrs |
 |   11	|  시험감독 	|  [시험감독](./AlgorithmStudy/백준/src/백준_01102022/브론즈_13458_시험감독.java) 	|   [문제링크](https://www.acmicpc.net/problem/13458) 	|  01/10/2022 	|   15min	|
 |   12	|  에디터 	| [에디터](./AlgorithmStudy/백준/src/백준_01102022/실버_1406_에디터.java)  	|    [문제링크](https://www.acmicpc.net/problem/1406)  	|  01/10/2022 	|  1.5hrs 	|
-|   	|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|   	|
+|  13 	| 카카오프렌즈칼러링북  	| [카카오프렌즈칼러링북](./AlgorithmStudy/프로그래머스/src/프로그래머스_01112022/카카오프렌즈컬러링북.java)  	|  [문제링크](https://programmers.co.kr/learn/courses/30/lessons/1829) 	|  1/11/2022 	|   1.5hrs	|
+|  14 	|  테트로미노 	| [테트로미노](./AlgorithmStudy/백준/src/백준_01112022/골드_14500_테트로미노.java) 	|  [문제링크](https://www.acmicpc.net/problem/14500) 	|   01/11/2022	|  5hrs 	|
+|   15	|  연구소 	|   [연구소](./AlgorithmStudy/백준/src/백준_01122022/골드_14502_연구소.java)	|  [문제링크](https://www.acmicpc.net/problem/14502)	| 01/12/2022 	|  2hrs 	|
