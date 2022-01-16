@@ -17,3 +17,10 @@
 |  13 	| 카카오프렌즈칼러링북  	| [카카오프렌즈칼러링북](./AlgorithmStudy/프로그래머스/src/프로그래머스_01112022/카카오프렌즈컬러링북.java)  	|  [문제링크](https://programmers.co.kr/learn/courses/30/lessons/1829) 	|  1/11/2022 	|   1.5hrs	|
 |  14 	|  테트로미노 	| [테트로미노](./AlgorithmStudy/백준/src/백준_01112022/골드_14500_테트로미노.java) 	|  [문제링크](https://www.acmicpc.net/problem/14500) 	|   01/11/2022	|  5hrs 	|
 |   15	|  연구소 	|   [연구소](./AlgorithmStudy/백준/src/백준_01122022/골드_14502_연구소.java)	|  [문제링크](https://www.acmicpc.net/problem/14502)	| 01/12/2022 	|  2hrs 	|
+|  16 	|  수찾기 	|  [수찾기](./AlgorithmStudy/백준/src/백준_01132022/실버4_1920_수찾기.java) 	|  [문제링크](https://www.acmicpc.net/problem/1920)	 	|  01/13/2022 	|  10min 	|
+|  17 	|  소수찾기 	| [소수찾기](./AlgorithmStudy/백준/src/백준_01132022/실버4_1978_소수찾기.java)  	| [문제링크](https://www.acmicpc.net/problem/1978)  	| 	01/13/2022  	|   15min	|
+|  18 	|  단어정렬 	| [단어정렬](./AlgorithmStudy/백준/src/백준_01132022/실버5_1181_단어정렬.java)  	|   [문제링크](https://www.acmicpc.net/problem/1181)	  	|   01/13/2022	| 10min   |
+| 19  	|  로봇청소기 	|  [로봇청소기](./AlgorithmStudy/백준/src/백준_01142022/골드_14503_로봇청소기.java)   	|   [문제링크](https://www.acmicpc.net/problem/14503)	  	|   01/14/2022	|  2hrs  |
+|  20 	|  컨베이어벨트위의로봇 	|  [컨베이어벨트위의로봇](./AlgorithmStudy/백준/src/백준_01152022/골드_20055_컨베이어벨트위의로봇.java)  	  |   [문제링크](https://www.acmicpc.net/problem/20055)		| 01/15/20202  	|   2.5hrs  |
+|  21 	|  스타트와링크 	|    [스타트와링크](./AlgorithmStudy/백준/src/백준_01162022/실버_14899_스타트와링크.java) 	|  [문제링크](https://www.acmicpc.net/problem/14899)		|   01/16/2022	|  2.5hrs   |
+|   22	|   감시	|   [감시](./AlgorithmStudy/백준/src/백준_01162022/골드_15683_감시.java)  	|   [문제링크](https://www.acmicpc.net/problem/15683)	 	|   01/16/2022	|  4hrs+   |
