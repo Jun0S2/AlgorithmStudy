@@ -8,7 +8,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
-
+/**
+ * 골드 5
+ * @author June Park
+ * Simulation, 팔방탐색
+ * 3hr 20 min
+ */
 public class 골드_21610_상어와비바라기 {
 static int N, map[][];
 static boolean cloud[][],copy[][];//구름
