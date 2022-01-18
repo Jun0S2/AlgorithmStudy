@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class 골드_16234_인구이동 {
 static int N,L,R,map[][];
 static boolean union[][];
-
+static boolean stop;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -19,7 +21,8 @@ static boolean union[][];
 		R = Integer.parseInt(st.nextToken());
 		
 		map = new int[N][N];
-		union = new boolean[N][N];
+		union = new boolean [N][N];
+		
 
 		
 		for(int i =0 ; i< N ; i++) {
@@ -31,131 +34,109 @@ static boolean union[][];
 		bw.write(solution()+"\n");
 		bw.flush();
 	}
-
+	static int area;
 	private static int solution() {
 		int days = 0;
-		while(true) {
+		area = 0;
+		stop = false;
+		while(!stop) {
 			//1. 인구차이에 따라 국경 통합 지대 취합
-			unionCountries();
-			System.out.println("국경 통합 지대 취합: ");
+			getUnions();//국경지대 뽑고 인구이동
 			printMap();
-			printUnions();
 			//2. 인구이동 시작
-			int avg = averagePopulation();
-			if(avg==0)break;//avg population이 0이란 소리는 인접한 국가가 하나도 없다는 소리(종료)
-			
-			imigrate(avg);
-
-			System.out.println("인구이동 완료");
-			printMap();
-			printUnions();
-			
-			//if(!status())break;//if boolean map == all false -> the end..종료조건
-			//3. 연합 해제 국경선 닫기
-			resetUnion();
-			System.out.println("초기화 및 현재 결론 : ");
-			printMap();
-			printUnions();
+			resetArr(union);
+			// if(stop)break; 국경선이 안열렸을 경우 break
 			days++;
 		}
 		return days;
 	}
-	/**
-	 * Status Check
-	 * 연합이 그 ㅇ ㅓ떤곳도 없으면 더이상 진행 멈춰도 된다.
-	 */
-	public static boolean status() {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if(union[i][j])return true;
-			}
-		}
-		return false;
-	}
-	/**
-	 * Step 2 
-	 * 인구이동 시작
-	 * 소숫점 버림 -> int형으로 계산
-	 */
-	public static void imigrate(int average) {
-		for(int i = 0 ; i<N ;i++) {
-			for(int j = 0 ; j<N ;j++) {
-				if(union[i][j]) map[i][j] = average;
-			}
-		}
-	}
-	public static int averageResidents(int total, int cnt) {
-		return total/cnt;
-	}
+
 	static int dx[] = {-1,1,0,0};
 	static int dy[] = {0,0,-1,1};
 
 	/**
 	 * Step 1 
 	 * 인구차이에 따른 국경 통합 지대 취합
+	 * 색칠하기 같은 방식
+	 * a,b에서 한붓그리기 가능한 구역 -> ab의 연합국
 	 */
-	public static void unionCountries() {
-		int populations = 0;
-		for(int i = 0 ; i< N ; i++) {
+	public static void getUnions() {
+		int  cnt = 0;
+		for(int i = 0 ; i<N ; i++) {
 			for(int j = 0 ; j<N ; j++) {
-				if(union[i][j])continue;//이미 국경 오픈 지역
-				for(int d = 0 ; d<4 ; d++) {
-					int nx = i + dx[d];
-					int ny = j + dy[d];
-					if(nx<0||ny<0||nx>=N||ny>=N)continue;//범위 out
-					
-					int difference = Math.abs(map[i][j]- map[nx][ny]);
-					if(difference>=L && difference<=R) {//국경선 열 수 있음
-						union[i][j] = true;
-						union[nx][ny] = true;
-					}
+				if(!union[i][j]) {//연합인지 체크 안해봄
+					union[i][j]=true;
+					cnt += bfs(i,j);
 				}
 			}
 		}
+		if(cnt==0) stop = true;
+	}
+	public static int bfs(int a, int  b) {
+		Queue<int[]> q = new LinkedList<>();
+		q.add(new int[] {a,b});
+		boolean visited [][] = new boolean[N][N];
+		visited[a][b] = true;
+		
+		while(!q.isEmpty()) {
+			int[] node = q.poll();
+				for(int d = 0 ; d<4 ; d++) {
+					int nx = node[0] + dx[d];
+					int ny = node[1] + dy[d];
+					if(nx<0||ny<0||nx>=N||ny>=N)continue;//범위 out
+					if(visited[nx][ny])continue;
+					int difference = Math.abs(map[node[0]][node[1]]- map[nx][ny]);
+					if(difference>=L && difference<=R) {//국경선 열 수 있음
+						q.add(new int[] {nx,ny});
+						visited[nx][ny] = true;
+						union[nx][ny] = true;//연합국 체크했는지의 방문배열
+					}
+				}
+		}
+		
+		printArr(visited);
+		
+		//현재 visited 배열에는 한개의 연합국지도가 찍혀있다 -> update map
+		int count = 0; int sum = 0;
+		for(int i= 0 ; i< N ; i++) {
+			for(int j = 0 ; j<N ;j ++) {
+				if(visited[i][j]) {
+					count++;
+					sum+=map[i][j];
+					map[nx][ny] = area;
+				}
+			}
+		}
+		if(count==1)return 0 ;//a,b위치에서 연합국 존재하지 x
+		else stop = false;
+		int avg = sum/count;
+		for(int i= 0 ; i< N ; i++) {
+			for(int j = 0 ; j<N ;j ++) {
+				if(visited[i][j]) {
+					map[i][j] = avg ;
+				}
+			}
+		}//: 지도를 업데이트 한다
+		printMap();
+		return count;
 	}
 	
 	/**
 	 * Reset Union : 연합 상태 해지
 	 */
-	public static void resetUnion() {
+	public static void resetArr(boolean[][] union2) {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				union[i][j]= false;
+				union2[i][j]= false;
 			}
 		}
 	}
-	/**
-	 * Utilities
-	 * count true
-	 */
-	public static int countUnion() {
-		int unions = 0;
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if(union[i][j]) unions++;
-			}
-		}
-		return unions;
-	}
-	public static int averagePopulation() {
-		int pop = 0;
-		int cnt = 0;
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if(union[i][j]) {
-					pop+=map[i][j];
-					cnt++;
-				}
-			}
-		}
-		if(cnt==0)return 0;
-		return pop/cnt;
-	}
+
 	
-	public static void printUnions() {
+	public static void printArr(boolean arr[][]) {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				System.out.print(union[i][j] + "  ");
+				System.out.print(arr[i][j] + "  ");
 			}
 			System.out.println();
 		}
