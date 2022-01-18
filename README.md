@@ -25,5 +25,5 @@
 | 20 | 컨베이어벨트위의로봇 | [컨베이어벨트위의로봇](./AlgorithmStudy/백준/src/백준_01152022/골드_20055_컨베이어벨트위의로봇.java) | [문제링크](https://www.acmicpc.net/problem/20055) | 01/15/20202 | 2.5hrs |
 | 21 | 스타트와링크 | [스타트와링크](./AlgorithmStudy/백준/src/백준_01162022/실버_14899_스타트와링크.java) | [문제링크](https://www.acmicpc.net/problem/14899) | 01/16/2022 | 2.5hrs |
 | 22 | 감시 | [감시](./AlgorithmStudy/백준/src/백준_01162022/골드_15683_감시.java) | [문제링크](https://www.acmicpc.net/problem/15683) | 01/16/2022 | 4hrs+ |
-| 23 | 치킨배달 | [치킨배달](./AlgorithmStudy/백준/src/백준_01172022/골드_15686_치킨배달.java) | [문제링크](https://www.acmicpc.net/problem/151686) | 01/17/2022 | 2.5 hrs |
-| 24 | 마법사 상어와 비바라기 | [마법사상어와비바라기](./AlgorithmStudy/백준/src/백준_01172022/골드_21610_상어와비바라기.java) | [문제링크](https://www.acmicpc.net/problem/21610) | 01/17/2022 | 3.2hrs |
+| 23 | 치킨배달 | [치킨배달](./AlgorithmStudy/백준/src/백준_1172022/골드_15686_치킨배달.java) | [문제링크](https://www.acmicpc.net/problem/151686) | 01/17/2022 | 2.5 hrs |
+| 24 | 마법사 상어와 비바라기 | [마법사상어와비바라기](./AlgorithmStudy/백준/src/백준_1172022/골드_21610_상어와비바라기.java) | [문제링크](https://www.acmicpc.net/problem/21610) | 01/17/2022 | 3.2hrs |
