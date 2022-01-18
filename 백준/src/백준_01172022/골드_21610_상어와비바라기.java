@@ -1,4 +1,4 @@
-package 백준_1172022;
+package 백준_01172022;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
