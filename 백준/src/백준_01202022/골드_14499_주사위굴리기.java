@@ -7,7 +7,14 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+/**
+ * 골드 4단계
+ * 삼성 기출문제
+ * 소요시간 : 2시간
+ * @author June Park
+ * Readme.md 에 풀이 추가
+ *
+ */
 public class 골드_14499_주사위굴리기 {
 	static int N,M,X,Y,K,map[][];
 	static int back, bottom, front, top, right, left; //다이스의 면에 적힌 숫자를 저장할  변수
