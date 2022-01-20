@@ -9,7 +9,19 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+/**
+ * 골드 4단계
+ * 삼성 기출문제
+ * @author June Park
+ * 문제 자체는 이해하기 쉬우나 시간초과가 날까봐 조마조마 했다.
+ * 혹여나 시간초과 날까봐 priority queue는 
+ * 많이 혹사시키지 않기 위해 일반 큐를 사용하여 죽은 나무, 새로 생길 나무, 한살 더 먹은 나무를
+ * 지속적으로 비워주었다.
+ * 첫 시도때 틀려서 디버깅했는데 천년 예제를 통해 comparable 조건을 단순히 age를 했을 때
+ * 맞는 것을 확인하였다.
+ * 소요 시간 :3시간 +
+ *
+ */
 public class 골드_16235_나무재태크 {
 	static int N, M, K, nutrients[][], add[][];
 	public static class Tree {
@@ -47,7 +59,7 @@ public class 골드_16235_나무재태크 {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 1; j <= N; j++) {
 				 add[i][j] = Integer.parseInt(st.nextToken());
-				 nutrients[i][j] = 5;//초기양분은 5래.
+				 nutrients[i][j] = 5;//초기양분은 5
 			}
 		}
 
@@ -60,7 +72,6 @@ public class 골드_16235_나무재태크 {
 
 		}
 		simulation();
-		//System.out.println(trees.size());
 		bw.write(trees.size()+"\n");
 		bw.close();
 		trees.clear();
@@ -98,7 +109,7 @@ public class 골드_16235_나무재태크 {
 				aged.add(new Tree(t.x,t.y,t.age+1));//나이 한살 더먹는다
 			}
 		}
-		//한살 더 먹은넘들 다시 집어넣기
+		//한살 더 먹은 나무들 다시 집어넣기
 		while(!aged.isEmpty()) {
 			Tree t = aged.poll();
 			trees.add(t);
@@ -108,15 +119,14 @@ public class 골드_16235_나무재태크 {
 	public static void Summer() {//죽는다
 		while(!dead.isEmpty()) {
 			Tree t = dead.poll();
-	//		System.out.println("죽은넘 : "+t.x+","+t.y+"은 향년 "+t.age+"양분을 주셔따");
+	//		System.out.println("죽은넘 : "+t.x+","+t.y+"은 향년 "+t.age+"양분을 주셨다");
 			nutrients[t.x][t.y] += t.age;
 		}
 	//	printArr(nutrients);
 	}
 	static int dx [] = {-1,-1,-1, 0,0, 1,1,1};
 	static int dy [] = {-1, 0, 1,-1,1,-1,0,1};
-	
-//	static String dd[]= {"왼쪽위","위","오른쪽위","왼쪽","오른쪽","왼쪽아래","아래","오른쪽아래"};
+
 	
 	public static void Fall() {
 		while(!born.isEmpty()) {
@@ -132,7 +142,9 @@ public class 골드_16235_나무재태크 {
 			
 		}
 	}
-	/*
+	/**
+	 * Utilities: print 2D Array
+	 */
 	public static void printArr(int[][] arr) {
 		for(int i =1 ;i <=N ; i++) {
 			for(int j = 1; j<= N ;j ++) {
@@ -140,5 +152,5 @@ public class 골드_16235_나무재태크 {
 			}
 			System.out.println();
 		}
-	}*/
+	}
 }
