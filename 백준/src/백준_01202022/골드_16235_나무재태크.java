@@ -119,7 +119,7 @@ public class 골드_16235_나무재태크 {
 	public static void Summer() {//죽는다
 		while(!dead.isEmpty()) {
 			Tree t = dead.poll();
-	//		System.out.println("죽은넘 : "+t.x+","+t.y+"은 향년 "+t.age+"양분을 주셨다");
+	//		System.out.println("죽은 나무  : "+t.x+","+t.y+"은 향년 "+t.age+"양분을 주셨다");
 			nutrients[t.x][t.y] += t.age;
 		}
 	//	printArr(nutrients);
