@@ -2,14 +2,15 @@ package 백준_01212022;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class 골드_16236_아기상어 {
 
 	static int N, map[][],copyArr[][];
 	static boolean visited[][];
+	static Shark babyShark;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -24,118 +25,124 @@ public class 골드_16236_아기상어 {
 			st = new StringTokenizer(br.readLine());
 			for(int j = 0 ; j<N ;j ++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
-				if(map[i][j] == 9) {x = i; y = j;}
+				if(map[i][j] == 9) {babyShark = new Shark(i,j,0);}
 			}
 		}
 		
 		answer = 0;//잡은 물고기의 수
-		simulation(x,y,2);
-		System.out.println(answer);
-		
+		sharkSize = 2;
+		simulation();
+//		System.out.println("상어 사이즈 : "+sharkSize);
 	}
-	static int answer;
-	private static void simulation(int x, int y ,int size) {
-		int done = 5;
-		int cnt = 0;
-		while(cnt < 10) {
-			done = leftFish();
-			if(done == 0 )return;
-			else if (done ==1) {answer++; return;}
-			else {//물고기가 두마리 이상 남아있는 경우:
-				Shark res  = bfs(x,y,size);
-				if(size==res.size) {//먹을수있는 물고기가 없다
-					done = 0;
-				}
-				//else : 
-				map[res.x][res.y]=0;//맵 업데이트
-				/*아기상어값 업데이트*/
-				x = res.x;
-				y = res.y;
-				size = res.size;
-				answer++;//먹은 물고기수 ++<-초에 distance 더하면 됨
-			}
-			cnt++;
+	
+	static PriorityQueue<Shark> distance = new PriorityQueue<>(new Comparator<Shark>() {
+		@Override
+		public int compare(Shark o1, Shark o2) {
+			//1.
+			if(o1.distance!=o2.distance) return o1.distance - o2.distance;//최단거리
+			else if (o1.y!= o2.y) return o1.y - o2.y;
+			return o1.x - o2.x;
 		}
-		
-		
+	});
+	/**
+	 * 한칸 이동하는데  1초 걸림
+	 * 물고기 1마리 이상이면 먹음
+	 * 아니면 sos
+	 */
+	private static void simulation() {
+		int time = 0;//초
+		while(true) {
+			int sec = swim();
+			if(sec==0) {System.out.println("도와줘용");break;}//물고기가 한마리도 없는 경우			
+			else {
+				time +=sec;
+			}
+		}
+		System.out.println(time+"초");
 	}
+	/**
+	 * 상어부터 시작해서 bfs를 돌리는게 아니라 물고기가 상어에게 찾아오는걸로 bfs를 돌려서
+	 * 모든 가능한 경우를 리스트에 담는다
+	 * 최단거리 리턴
+	 */
+	private static int swim() {
+		boolean sos = true;
+		int min = Integer.MAX_VALUE;
+		int nx = 0, ny = 0;
+		for(int i = 0 ; i < N ; i ++) {
+			for(int j = 0 ; j<N ;j ++) {
+				if(map[i][j]==0)continue;
+				else if (map[i][j]==9)continue;
+				else{ //물고기 발견
+					sos = false;
+					System.out.println("물고기 발견 @ "+i+", "+j);
+					int distance = bfs(i,j);
+					if(min>distance) {
+						min = distance;
+						nx = i; ny = j;
+					}
+				}
+			}
+		}
+		if(sos) { System.out.println("도와주세요.");return 0;}
+		if(min!=0) {
+			sharkSize++;
+			map[babyShark.x][babyShark.y] = 0;
+			map[nx][ny]=9;//상어 이동함. 상어 사이즈는 변수가 관리중
+		}
+		//while로 큐에있는애들 다 빼서 최소 거리 알아냄 -> 만약 최소거리가 0보다 크면 상어 사이즈 올리셈
+		System.out.println("최단경로 : " +min +"at : "+nx+", "+ny+"물고기를 먹을경우");//일단 거리라도 맞으면 그 다음에 좌표 업뎃하쟈꾸낭..
+		return  min;
+	}
+	static int sharkSize;
+	private static int bfs(int i, int j) {
+		visited = new boolean[N][N];
+		distance.add(new Shark(i,j,0));//물고기의 좌표와 거리
+		int min = 0;
+		while(!distance.isEmpty()) {	//물고기가 상어찾으면 돌아옴-> 빌때까지 하는거자나..그치?
+			Shark fish = distance.poll();
+			for(int d = 0 ; d<4 ; d++) {
+				int nx = fish.x + dx[d];
+				int ny = fish.y + dy[d];
+			//	System.out.println("왓니..? "+nx+","+ny);
+				
+				if(nx<0||ny<0||nx>=N||ny>=N||visited[nx][ny])continue;
+				
+				
+				if(map[nx][ny]==0 ) {//통로 -> <= 여야할까? 
+					visited[nx][ny] = true;
+					distance.add(new Shark(nx,ny,fish.distance+1));//한칸 더 간다...상어야 기다룡..ㅜ
+				}
+				else if (map[nx][ny] == 9) {//상어님..
+					visited[nx][ny] = true;
+					distance.add(new Shark(nx,ny,fish.distance+1));
+					min = fish.distance+1;
+					
+				}
+			}
+	}
+		return min;
+	}	
+	static int answer;
+
+		
+	
 	static int [] dx = {-1,0,1,0};//상좌 하우priority  :dx[0]->dx[1]
 	static int [] dy = {0,-1,0,1};
-	/**
-	 * 상어와 물고기의 최단거리를 찾는다
-	 * @param x , y : 상어의 좌표, size : 현재 상어의 크기
-	 * - 조건 1 : 상어와 물고기의 최단 거리가 여러개일 경우  : 가장 위쪽에 있는 경로로 이동한다
-	 * - 조건 2 : 조건 1을 만족하는 물고기가 여러개인 경우 가장 왼쪽에 있는 물고기에게 이동한다
-	 * return 최단거리일경우의 상어 status  -> 이제 맵에서 그 좌표만 직접 물고기 없애면 된다
-	 */
-	public static Shark bfs(int x, int y , int size) {
-		Queue<Shark> q = new LinkedList<>();
-		q.add(new Shark(x,y,size));
-		visited = new boolean[N][N];
-		visited[x][y] = true;//방문 처리
-		
-		copyArr();//배열 복제하여 계산 ㄱ
-		
-		int min_distance = Integer.MAX_VALUE;
-		int distance = 0;
-		
-		Shark result = new Shark(min_distance,min_distance,0);
-		System.out.println("시작 상어의 좌표 : "+x+","+y+" . 상어의 사이즈 : "+size);
 
-		while(!q.isEmpty()) {
-			Shark baby = q.poll();
-			for(int d = 0 ; d<4 ; d++) {
-				
-				int nx = baby.x + dx[d];
-				int ny = baby.y + dy[d];
-				if(nx<0||ny<0||nx>=N||ny>=N)continue;	//범위 out
-				if(visited[nx][ny])continue;			//이미 방문
-				
-				if(copyArr[nx][ny]> baby.size )continue;	//물고기> 상어
-				if(min_distance<distance+1) continue;	//만약 현재 진행중인 거리가 최소 거리보다 크면 for loop 탈출하시는걸 추천드림 : 어차피 distance+1되는 운명임
-				
-				
-				if(copyArr[nx][ny]==baby.size || copyArr[nx][ny]==0) {	//먹지는 못하고 이동만 가능
-					visited[nx][ny] = true;				//방문 처리
-					q.add(new Shark(nx,ny,baby.size));	//새 좌표, 현재 사이즈 유지
-					distance++;							//이동거리++
-				}
-				else if (copyArr[nx][ny]<baby.size) {		//물고기<상어 : can eat
-					copyArr[nx][ny] = 0;					//yum..
-					visited[nx][ny] = true;				//방문처리
-					q.add(new Shark(nx,ny,baby.size+1));//사이즈++
-					distance++;
-					
-					/* 상어를 먹었다면 최단거리 판단 */
-					if(distance>min_distance) {distance = 0; }//초기화
-					else if(distance<min_distance) {//만약 이전에 먹었다면 최소 거리인지 가늠해보자!
-						min_distance = distance;
-						result = new Shark(nx,ny, baby.size+1);//갱신
-					}
-					else if( distance == min_distance) { //최단거리와 같을 경우 -> 상->좌판단
-							if(result.y > ny) {//baby의 y좌표가 더 작을 경우
-								result = new Shark(nx,ny, baby.size+1);//갱신						
-							}else if (result.y==ny && result.x>ny) {//y좌표는 같은데, 현재 이동햇던 x좌표가더 작은 경우
-								result = new Shark(nx,ny, baby.size+1);//갱신												
-							}
-						}
-						distance = 0;//초기화
-					}
-	
-			}
-		}
-	
-		return result;
-	}
 
 	public static class Shark{
 		int x ;
 		int y;
-		int size;
-		Shark(int x, int y , int size ){
+		int distance;
+		Shark(int x, int y , int distance ){
 			this.x = x;
 			this.y = y;
-			this.size = size;
+			this.distance = distance;
+		}
+		@Override
+		public String toString() {
+			return "최단 경로 : "+this.distance;
 		}
 	}
 	public static void copyArr() {
