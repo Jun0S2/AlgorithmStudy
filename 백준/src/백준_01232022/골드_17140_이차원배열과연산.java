@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 /**
  * 골드 4
  * 삼성 sw 역량평가 기출
+ * 
  * PriorityQueue사용
  * 블로그들 많이 찾아보고 풀었다.
  * 행 또는 열의 크기가 100을 넘어가는 경우에는 처음 100개를 제외한 나머지는 버린다. 이 부분을 간과했었다
