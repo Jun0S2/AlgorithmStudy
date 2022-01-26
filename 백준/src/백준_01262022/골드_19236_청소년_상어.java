@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class 골드_19236_청소년_상어 {
-static int MAX = -1;
+static int MAX = 0;
 static int map[][];//물고기를 뿌릴 맵
 static Shark shark;
 static class Fish{
@@ -60,29 +60,64 @@ static LinkedList<Fish> temp = new LinkedList<>();
 			}
 		}
 		simulation();
+		System.out.println(MAX);
 	}
 	
 	private static void simulation() {
 		//이동할 수 있는 칸이 없을 때 멈춤
-		// 물고기 이동
-		// map 초기화
-		// map 에 뿌리기
-		// 상어 이동 ->여기서 break인지 아닌지 확인될거같은데..
-		// map에서 물고기 배열 업데이트
+		while(!stop) {
+			fishSwim();// 물고기 이동
+			release();// map 초기화+  뿌리기
+			int no = maxCheck();	// 상어 이동 ->여기서 break인지 아닌지 확인
+			updateFishInfo(no);	// map에서 물고기 배열 업데이트
+			updateMap();//새 맵과 pq 업뎃
+		}
+		
+	}
+	
+	/**
+	 * 지도 및 pq 업데이트
+	 */
+	public static void updateMap() {
+		initMap();
+		while(!temp.isEmpty()) {
+			Fish t = temp.poll();
+			map[t.x][t.y] = t.num;
+			pq.add(new Fish(t.num, t.direction , t.x , t.y , 0));
+		}
+	}
+	/**
+	 * 먹힌 물고기와 상어의 새 방향을 지정
+	 * @param no : 먹힌 번호
+	 */
+	public static void updateFishInfo(int no) {
+		for(int i = 0 ; i<temp.size() ;i ++) {
+			if(temp.get(i).num==no) {
+				Fish eaten = temp.get(i);
+				shark = new Shark(eaten.x, eaten.y, eaten.direction);
+				temp.remove(i);
+				break;
+			}
+		}
 	}
 	/**
 	 * 상어가 먹을 수 있는 물고기 번호의 최대를 체크한다
 	 */
 	static boolean stop = false;
-	public static void MaxCheck() {
+	public static int maxCheck() {
 		boolean stuck = true;//현재 위치에서 꼼짝 못하는 경우 집에가야..
+		int maxNo = -1;
 		//갈 수 있는 칸은 최대 3개임..
 		for(int i = 0 ; i<3 ; i++) {
 			int nx = shark.x + dx[shark.direction];
 			int ny = shark.y + dx[shark.direction];
 			if(nx<0||ny<0||nx>=4||ny>=4)break;
+			stuck = false;//이동 가능
+			maxNo = maxNo < map[nx][ny] ? map[nx][ny]:maxNo;//갱신
 		}
 		if(stuck) stop = true;
+		MAX+=maxNo;//먹은 물고기 넘버 업뎃
+		return maxNo;
 	}
 	/**
 	 * temp에 있는 물고기를 전부 맵에 방출ㄴ
