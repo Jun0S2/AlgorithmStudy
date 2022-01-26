@@ -59,6 +59,9 @@ static LinkedList<Fish> temp = new LinkedList<>();
 				}
 			}
 		}
+		
+		
+		System.out.println("초기 상어 정보 : 방향 - "+shark.direction);
 		simulation();
 		System.out.println(MAX);
 	}
@@ -67,10 +70,17 @@ static LinkedList<Fish> temp = new LinkedList<>();
 		//이동할 수 있는 칸이 없을 때 멈춤
 		while(!stop) {
 			fishSwim();// 물고기 이동
-			release();// map 초기화+  뿌리기
-			int no = maxCheck();	// 상어 이동 ->여기서 break인지 아닌지 확인
+			System.out.println("물고기 이동 끗~~");
+			System.out.println(pq.isEmpty());
+			System.out.println("-------------------------------------------------------------------------");
+			//System.out.println("물고기 리스트");
+			//printList();
+			System.out.println("-------------------------------------------------------------------------");
+			
+			int no = maxCheck();	// 상어 이동 ->여기서 break인지 아닌지 확인//미친..여기서 dfs를 해야해..
 			updateFishInfo(no);	// map에서 물고기 배열 업데이트
 			updateMap();//새 맵과 pq 업뎃
+			//stop = true;
 		}
 		
 	}
@@ -85,6 +95,7 @@ static LinkedList<Fish> temp = new LinkedList<>();
 			map[t.x][t.y] = t.num;
 			pq.add(new Fish(t.num, t.direction , t.x , t.y , 0));
 		}
+		System.out.println("다시 시작하기 전 점검 : "+pq.size()+"마리 남음"+temp.size()+"탬프비움");
 	}
 	/**
 	 * 먹힌 물고기와 상어의 새 방향을 지정
@@ -93,9 +104,10 @@ static LinkedList<Fish> temp = new LinkedList<>();
 	public static void updateFishInfo(int no) {
 		for(int i = 0 ; i<temp.size() ;i ++) {
 			if(temp.get(i).num==no) {
-				Fish eaten = temp.get(i);
+				System.out.println(no+"가 먹혔다고 들었습니당...");
+				Fish eaten = temp.remove(i);
 				shark = new Shark(eaten.x, eaten.y, eaten.direction);
-				temp.remove(i);
+				System.out.println("상어의 새 위치: "+eaten.x +", " +eaten.y +"새 방향 : "+eaten.direction);
 				break;
 			}
 		}
@@ -108,14 +120,18 @@ static LinkedList<Fish> temp = new LinkedList<>();
 		boolean stuck = true;//현재 위치에서 꼼짝 못하는 경우 집에가야..
 		int maxNo = -1;
 		//갈 수 있는 칸은 최대 3개임..
+		int nx = shark.x + dx[shark.direction];
+		int ny = shark.y + dx[shark.direction];
 		for(int i = 0 ; i<3 ; i++) {
-			int nx = shark.x + dx[shark.direction];
-			int ny = shark.y + dx[shark.direction];
+			nx = nx+ dx[shark.direction];
+			ny = ny + dx[shark.direction];
 			if(nx<0||ny<0||nx>=4||ny>=4)break;
 			stuck = false;//이동 가능
+			System.out.println(map[nx][ny]);
 			maxNo = maxNo < map[nx][ny] ? map[nx][ny]:maxNo;//갱신
 		}
 		if(stuck) stop = true;
+		System.out.println("뀨?"+maxNo);
 		MAX+=maxNo;//먹은 물고기 넘버 업뎃
 		return maxNo;
 	}
@@ -138,43 +154,78 @@ static LinkedList<Fish> temp = new LinkedList<>();
 	 * 			 근데 어차피 swap 당한 물고기가 좌표에 찍혀있다면,아 맞다...temp는 큐가 아니라 리스트임..
 	 * 			 따라서 리스트 한번 훑고 if curr_ num보다 가려는 위치의 num이 작으면 리스트에서 get하면 되지 않ㅇ르까.. 
 	 */
-	static int dx[] = {-1,-1,0,1,1,1,0,-1};
-	static int dy[] = {0,-1,-1,-1,0,1,1,1};
+	static int dx[] = {0,-1,-1,0,1,1,1,0,-1};
+	static int dy[] = {0,0,-1,-1,-1,0,1,1,1};
 	public static void fishSwim() {
 		int cnt = 0;
 		while(!pq.isEmpty()) {
 			Fish fish = pq.poll();
 			int fish_dir = fish.direction;//옮겨진 물고기들의 방향은 변하지 않았다
 			if(fish_dir<0) {//옮겨진 적이 있다 ->dir 이 음수가 아닐때까지 팦하고 온다
+				System.out.println("옹ㅇㅇ");
+				System.out.println("가장 마지막..에 업됫된 좌표 : "+ fish.x +", "+fish.y);
 				fish_dir = findPrev(fish.num);//이렇게 하면, 방향받고, 계속 이동하던 물고기정보는 앞쪽에 생겨서 유지됨
+				System.out.println(fish_dir);
 			}
+			//System.out.println("다음 물고기 넘버 : "+pq.peek().num);
+			System.out.println("현재 물고기의 번호  :"+fish.num + " 좌표 : "+fish.x+", "+fish.y+" 방향 : "+fish_dir);
 			
 			boolean flag = true;//이동불가능 하면 true
-			for(int i = fish.direction ; i<fish.direction+8 ; i++) {
-				int nx = fish.x + dx[(i)%8];
-				int ny = fish.y + dy[i%8];
-				int nd = i%8;
-				if(nx<0||ny<0||nx>=4||ny>=4||(nx==shark.x&&ny==shark.y))continue;
+			
+			int nd = fish_dir;
+			int nx = fish.x + dx[nd];
+			int ny = fish.y + dy[nd];
+			System.out.println("처음 방향으로 이동하면 : "+nx+", "+ny+"이다");
+		
+			for(int i = 0 ; i<8 ; i++) {
+				System.out.println("원래 좌표 : "+fish.x+","+fish.y+"방향 : "+nd);
+				if(nx<0||ny<0||nx>=4||ny>=4||(nx==shark.x&&ny==shark.y)) { //이동불가
+					if(nx==shark.x && ny==shark.y)System.out.println( "아기 상어 뚜루뚜루뚜");
+					System.out.println("이동불가 삐삐삐삐삐삐삐삐");
+					nd++;
+					if(nd==9)nd=1;
+					nx = fish.x + dx[nd];//새 좌표
+					ny = fish.y + dy[nd];
+					System.out.println("새방향  :"+nd+"예상 좌표 : "+nx+", "+ny);
+					continue; 
+				}
 				else {
+					flag = false;
 					if(map[nx][ny]!=0) { //이미 지도에 물고기가 있는 경우 그 물고기의 번호가 현재 물고기보다 큰지 판단
-						int no = map[nx][ny];
+						//맵 업데이트
+						int no = map[nx][ny];				
+						map[nx][ny] = fish.num;
+						map[fish.x][fish.y] = no;//기존 물고기
+						System.out.println(no+"번 물고기가 이미 있당");
 						if(no<fish.num) {//swap 이미 temp 배열에 들어온 애들
+							System.out.println("이미 이사하셧엇는데..");
 							swapList(nx,ny,fish.x,fish.y);
+							temp.add(new Fish(fish.num, nd, nx, ny,0));
+							
 						}
 						else {
+							System.out.println("바꾸려는 물고기는 계속 로그가 남아야한다");
 							cnt++;
-							int n = map[nx][ny];
-							map[nx][ny] = fish.num;
 							temp.add(new Fish(fish.num, nd, nx, ny,0));
-							map[fish.x][fish.y] = n;//기존 물고기
-							pq.add(new Fish(n,-1,nx,ny,cnt));//direction에 -1을 넣는다 -> 방향이 -1이면 updated가 큰순으로 리턴해서 좌표만 정할거고
+							System.out.println(fish.num+"물고기는 잘 들어갓다~");
+							
+							System.out.println(no+"번 물고기님은 다시 큐에 넣어드립니당"+fish.x + " , "+fish.y +" " +cnt);
+							pq.add(new Fish(no,-1,fish.x,fish.y,cnt));//direction에 -1을 넣는다 -> 방향이 -1이면 updated가 큰순으로 리턴해서 좌표만 정할거고
+							
 						}
 					}
-					else temp.add(new Fish(fish.num, nd, nx, ny,0));//빈칸일 경우
-				}
-				flag = false;//이동했다는 표시
-			}
-			if(flag)temp.add(new Fish(fish.num, fish.direction, fish.x, fish.y,0));//이동 못함
+					else {//0일떄
+						map[nx][ny]=fish.num;
+						map[fish.x][fish.y] = 0;
+						temp.add(new Fish(fish.num, nd, nx, ny,0));//빈칸일 경우
+					}
+					
+					 break;
+				}//end of else
+
+			}//end of for loop
+			if(flag)temp.add(new Fish(fish.num, fish_dir, fish.x, fish.y,0));//이동 못함
+			printMap();
 		}
 	}
 	/**
@@ -182,11 +233,16 @@ static LinkedList<Fish> temp = new LinkedList<>();
 	 */
 	private static int findPrev(int num) {
 		int dir = -1;
+		System.out.println("이전 기록...");
 		while(dir<0) {
+			if(pq.peek().num==num) {				
 			Fish p = pq.poll();
 			dir = p.direction;
+			System.out.println(p.x+", "+p.y);
 			if(dir>=0)break;
+			}else break;
 		}
+		 System.out.println("thje end..");
 		return dir;
 	}
 
@@ -211,6 +267,22 @@ static LinkedList<Fish> temp = new LinkedList<>();
 				map[i][j] = 0;
 			}
 		}
+		
+	}
+	public static void printList() {
+		for(int i = 0 ; i<temp.size() ; i++) {
+			Fish t = temp.get(i);
+			System.out.println(t.num+" 번 물고기의 위치 - "+t.x+","+t.y+" 방향 - "+t.direction);
+		}
+	}
+	public static void printMap() {
+		for(int i = 0 ; i<4 ; i++) {
+			for(int j = 0 ; j<4 ;j ++) {
+				System.out.print(map[i][j]+"  ");
+			}
+			System.out.println();
+		}
+		System.out.println("+====================================+");
 		
 	}
 }
