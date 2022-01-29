@@ -113,11 +113,11 @@ static int [][] dominos;
 			x = a.x;
 			y = a.y;
 			int length = a.length;
-//			System.out.println("연쇄작업중인 도미노 : "+a.x+", "+a.y+" 의 "+dominos[a.x][a.y]);
+			System.out.println("연쇄작업중인 도미노 : "+a.x+", "+a.y+" 의 "+dominos[a.x][a.y]);
 			for(int i = 0 ; i< length-1 ; i++) {
 				int nx = x + dx[d];
 				int ny = y + dy[d];
-//				System.out.println("쓰러지는중 범위 : "+nx+", "+ny);
+				System.out.println("쓰러지는중 범위 : "+nx+", "+ny);
 				if(nx<=0||ny<=0||nx>N||ny>M)break;//범위 out -> stop
 				if(status[nx][ny]) { //안쓰러진 도미노
 					attack.add(new Domino(nx,ny,dominos[nx][ny]));//새좌표와 길이
@@ -129,7 +129,7 @@ static int [][] dominos;
 			}
 		}
 		score += cnt;//현 라운드 점수  합산
-		//print();
+		print();
 	}
 
 	/**
@@ -144,7 +144,7 @@ static int [][] dominos;
 			}
 			System.out.println();
 		}
-		//System.out.println("----------------------------");
+		System.out.println("----------------------------");
 	}
 
 }
