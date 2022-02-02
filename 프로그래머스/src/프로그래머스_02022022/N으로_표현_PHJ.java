@@ -6,15 +6,13 @@ public class N으로_표현_PHJ {
 		N으로_표현_PHJ s = new N으로_표현_PHJ();
 		System.out.println(s.solution(5, 12));
 		// number12을 N을 사용하여 만들어야 함
-
 	}
 
 	static int min = Integer.MAX_VALUE, N, number;
 
 	public int solution(int n, int num) {
 		// int answer = 0;
-		N = n;
-		number = num;
+	N = n; number = num;//계속 쓸거라 static으로 뺌
 		dfs(0,0);// cnt=1, prev num == n
 		min = min <= 8 ? min : -1;
 		return min;
