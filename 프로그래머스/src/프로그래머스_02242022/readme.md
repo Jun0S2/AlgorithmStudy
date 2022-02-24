@@ -148,3 +148,15 @@ sort(temp.begin(), temp.end());
 sort 함수를 사용하기 위해서는, algorithm 헤더가 필요하다.
 해당 헤더를 사용하지 못하는 경우를 대비해서 sort function을 따로 만드는 연습도 자주 해야할 것 같다.
 sort 함수를 사용하는 방식이 좀 독특한데, 벡터.sort() 가 아닌 `sort(벡터.start범위, 벡터.end범위)` 이다
+
+# 완주하지 못한 선수
+
+헤더에 vector와 string만 포함시키기 위해 이중 for loop를 돌렸더니 효율성 테스트에서 하나도 돌아가지 않았다. 결국, 맵을 사용하기로 했다.
+
+한동안 java 만 써서 그런지, map에서 바로 overriding 할 수 있는게 생각이 안났다 ~~(설마 java도되는건가..?ㅋㅋ)~~
+
+```cpp
+include <unordered_map>
+ unordered_map<string, int>name_list; //맵 - 이름, cnt (동명이인때문,,)
+for(auto p : participant) name_list[p] +=1; //바로, key값에 value를 넣을 수 있다..!
+```
