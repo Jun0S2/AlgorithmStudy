@@ -79,7 +79,10 @@ ss>> first >> second; //문자열 parsing
 
 continue와 break를 둘 다 사용 가능하다!
 
-## stoi()
+## stoi() 와 to_string()
 
 코드가 마음에 안들어서 구글에 찾다보니까, stoi() 기능이 있다는걸 깨달았다..!ㅠㅠ
-stoi(str) -> int로 바꾸어주는 기능이다.
+stoi(str) -> int로 바꾸어주고,
+to_string() -> str로 바꾸어준다 (to_string없이 숫자를 문자열에 더하니까 core dumped 라는 오류가 출력되었다 ㅠ!)
+
+해당 기능으로 다시 코드를 구성하니 벡터 하나가 사라져서 조금 더 나아진것 같다.
