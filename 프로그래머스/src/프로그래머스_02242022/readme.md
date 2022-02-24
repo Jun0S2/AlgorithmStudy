@@ -78,3 +78,8 @@ ss>> first >> second; //문자열 parsing
 ## continue와 break
 
 continue와 break를 둘 다 사용 가능하다!
+
+## stoi()
+
+코드가 마음에 안들어서 구글에 찾다보니까, stoi() 기능이 있다는걸 깨달았다..!ㅠㅠ
+stoi(str) -> int로 바꾸어주는 기능이다.
