@@ -135,3 +135,16 @@ vect[i]
 ```
 
 위 두줄로 표현할 수 있다! 좀 더 만족스러운 느낌이 들게 수정하였다. 근데 백터가 좀 신경쓰이긴 하는데 후에 더 좋은 풀이법을 생각해 내고 싶다.
+
+# K번째수
+
+## sort
+
+```cpp
+#include <algorithm>
+sort(temp.begin(), temp.end());
+```
+
+sort 함수를 사용하기 위해서는, algorithm 헤더가 필요하다.
+해당 헤더를 사용하지 못하는 경우를 대비해서 sort function을 따로 만드는 연습도 자주 해야할 것 같다.
+sort 함수를 사용하는 방식이 좀 독특한데, 벡터.sort() 가 아닌 `sort(벡터.start범위, 벡터.end범위)` 이다
