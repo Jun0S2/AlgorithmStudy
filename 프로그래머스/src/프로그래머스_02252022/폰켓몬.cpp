@@ -27,7 +27,6 @@ int solution(vector<int> nums)
     }
 
     //생각해보니..unique를 제거하면.. 더이상 백트랙킹이 필요 없다.>!
-    int maxMid = nums.size() / 2; //최대 다양한 개수
-
-    return maxMid < num2.size() ? maxMid : num2.size();
+    return nums.size() / 2;
+    < num2.size() ? nums.size() / 2; : num2.size();
 }
