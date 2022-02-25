@@ -1,17 +1,9 @@
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 int counter = 0;
-
-/* Visited 확인 용 Utility
-void print(vector<bool> arr)
-{
-    for (auto a : arr)
-        cout << a << " ";
-    cout << endl;
-}
-*/
 
 bool isPrime(int number)
 {
@@ -51,3 +43,12 @@ int solution(vector<int> nums)
     backtracking(0, 0, 0, nums, visited);
     return counter;
 }
+
+/* Visited 확인 용 Utility*/
+/*void print(vector<bool> arr)
+{
+    for (auto a : arr)
+        cout << a << " ";
+    cout << endl;
+}
+*/
