@@ -43,3 +43,45 @@ sort(s.rbegin(),s.rend());
 # 최대공약수와 최소공배수
 
 while을 사용하여 intuitive한 방식으로 풀었는데 11번과 15번 케이스에서 계속 실패했다. 결국 유클리드 호제법을 이용해서 풀었다.
+
+# 실패율
+
+한시간 넘게 풀었던 것 같다. 나중에 다시 풀어봐야겠다.
+
+문제 조건을 잘 안읽어서 삼십분이 넘도록 왜 안돼는지 이곳저곳 뒤져도 알지 못했다 ㅠㅠ. 분모가 계속 바뀌는 문제였는데 ㅠㅠ
+
+그래도 문제를 풀면서 sort를 이 방법 저 방법으로 연습했다 ㅋㅋ.
+
+## Make Pair
+
+처음보는 아이.. ArrayList<int[]>같은 느낌이다. pair( , ) 을 계속 명시해줘야 한다.
+
+```cpp
+ vector<pair<int,double>> failure;
+ failure.push_back(make_pair(i,(double)cnt/total));
+```
+
+## Sort
+
+```cpp
+bool compare(const pair<int,double> &v1 , const pair<int, double> &v2){
+    if(v1.second == v2.second) return v1.first < v2.first;
+    return v1.second > v2. second; //내림차순
+}
+
+...
+ sort(failure.begin(), failure.end(), compare);
+
+```
+
+nested 백터에 pair 가 들어가 있어서 `bool compare(const pair<int,double> &v1 , ...)` 이 들어온 상태.
+만약, nested 백터에 pair 가 아니라 vector<double>이 들어와 있다면,
+
+```cpp
+bool compare(const vector<double> &v1 , const vector<double> &v2)
+{...}
+```
+
+가 들어오게 된다.
+
+또, 놀랍게도 #include <algorithm> 을 사용하게 되면 swap(index , index) 가 가능하더라..
