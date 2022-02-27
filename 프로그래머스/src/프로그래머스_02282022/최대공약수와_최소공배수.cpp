@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+/* 유클리드 호제*/
 using namespace std;
 
 vector<int> gcd(int N, int M)
