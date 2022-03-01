@@ -2,3 +2,8 @@
 /.settings/
 /.classpath/
 /.project/
+
+# Executables
+*.exe
+*.out
+*.app
