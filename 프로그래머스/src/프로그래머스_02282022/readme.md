@@ -85,3 +85,7 @@ bool compare(const vector<double> &v1 , const vector<double> &v2)
 가 들어오게 된다.
 
 또, 놀랍게도 #include <algorithm> 을 사용하게 되면 swap(index , index) 가 가능하더라..
+
+# 예산
+
+DP 문제인줄 알았는데, 그리디 문제였다. 가장 많이 fit 하는 문제였고 최고 가치를 담는 문제가 아니였다...
