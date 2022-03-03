@@ -2,7 +2,7 @@
 
 1일 1 알고 목표
 <details>
-  <summary>구현 및 시뮬레이션 문제</summary>
+  <summary> 🎮 구현 및 시뮬레이션 문제</summary>
   
   
 | no | problem | solution | problem link | date | solving time |
@@ -44,7 +44,7 @@
                                                                                                                                                      
 </details>
 <details>
-  <summary>C++ 기초 문제</summary>
+  <summar> 📚 C++ 기초 문제</summary>
   
   C++ 언어를 익히기 위해 프로그래머스의 LV1 문제 풀이
   
@@ -99,8 +99,8 @@
 | 48 |문자열_내마음대로_정하기|[문자열_내마음대로_정하기](./프로그래머스/src/프로그래머스_02282022/문자열_내마음대로_정하기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12915) | 02/28/2022 |
 | 49 |실패율|[실패율](./프로그래머스/src/프로그래머스_02282022/실패율.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42889) | 02/28/2022 |
 | 50 |예산|[예산](./프로그래머스/src/프로그래머스_02282022/예산.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12982) | 02/28/2022 |
-| 51 |최대공약수와_최소공배수|[최대공약수와_최소공배수](./프로그래머스/src/프로그래머스_02282022/최대공약수와_최소공배수.cpp | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12940) | 02/28/2022 |
-| 52 |최소직사각형]|[최소직사각형](./프로그래머스/src/프로그래머스_02282022/최소직사각형.cpp | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/86491) | 02/28/2022 |
-| 53 |행렬의_덧셈]|[행렬의_덧셈](./프로그래머스/src/프로그래머스_02282022/행렬의_덧셈.cpp | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12950) | 02/28/2022 |
+| 51 |최대공약수와_최소공배수|[최대공약수와_최소공배수](./프로그래머스/src/프로그래머스_02282022/최대공약수와_최소공배수.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12940) | 02/28/2022 |
+| 52 |최소직사각형]|[최소직사각형](./프로그래머스/src/프로그래머스_02282022/최소직사각형.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/86491) | 02/28/2022 |
+| 53 |행렬의_덧셈]|[행렬의_덧셈](./프로그래머스/src/프로그래머스_02282022/행렬의_덧셈.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12950) | 02/28/2022 |
 
 </details>
