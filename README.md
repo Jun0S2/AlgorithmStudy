@@ -1,6 +1,8 @@
 # AlgorithmStudy
 
-1일 1~2 알고 목표
+1일 1 알고 목표
+<details>
+  <summary>구현 및 시뮬레이션 문제</summary>
 | no | problem | solution | problem link | date | solving time |
 |--- |--- |--- |--- |--- |--- |
 | 1 | 오픈채팅방 | [오픈채팅방](./프로그래머스/src/프로그래머스_01042022/오픈채팅방.java) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42888) | 01/04/2022 | 2hrs |
@@ -37,3 +39,9 @@
 32 | 퇴사| [퇴사](./백준/src/백준_01222022/실버_14501_퇴사.java) | [문제링크](https://www.acmicpc.net/problem/14501) | 01/22/2022 | 1hr |
 33 |이차원 배열과 연산 | [이차원 배열과 연산](./백준/src/백준_01232022/골드_17140_이차원배열과연산.java) | [문제링크](https://www.acmicpc.net/problem/17140) | 01/23/2022 | 3hrs+ |
 34 | 미세먼지 안녕!| [미세먼지 안녕!](./백준/src/백준_01232022/골드_17144_미세먼지안녕.java) | [문제링크](https://www.acmicpc.net/problem/17144) | 01/23/2022 | 2.1hr |
+                                                                                                                                                     
+</details>
+<details>
+  <summary>C++ 기초 문제</summary>
+  
+</details>
