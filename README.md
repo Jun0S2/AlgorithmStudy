@@ -1,9 +1,8 @@
 # AlgorithmStudy
 
-1일 1 알고 목표
-<details>
-  <summary> 🎮 구현 및 시뮬레이션 문제</summary>
-  
+> 1일 1 알고 목표
+
+## 🎮 구현 및 시뮬레이션 문제
   
 | no | problem | solution | problem link | date | solving time |
 |--- |--- |--- |--- |--- |--- |
@@ -42,11 +41,9 @@
 33 |이차원 배열과 연산 | [이차원 배열과 연산](./백준/src/백준_01232022/골드_17140_이차원배열과연산.java) | [문제링크](https://www.acmicpc.net/problem/17140) | 01/23/2022 | 3hrs+ |
 34 | 미세먼지 안녕!| [미세먼지 안녕!](./백준/src/백준_01232022/골드_17144_미세먼지안녕.java) | [문제링크](https://www.acmicpc.net/problem/17144) | 01/23/2022 | 2.1hr |
                                                                                                                                                      
-</details>
-<details>
-  <summary> 📚 C++ 기초 문제</summary>
+ ## 📚 C++ 기초 문제
   
-  C++ 언어를 익히기 위해 프로그래머스의 LV1 문제 풀이
+ C++ 언어를 익히기 위해 프로그래머스의 LV1 문제 풀이
   
   | no | problem | solution | problem link | date |
 |--- |--- |--- |--- |--- |
