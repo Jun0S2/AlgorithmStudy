@@ -3,6 +3,8 @@
 1일 1 알고 목표
 <details>
   <summary>구현 및 시뮬레이션 문제</summary>
+  
+  
 | no | problem | solution | problem link | date | solving time |
 |--- |--- |--- |--- |--- |--- |
 | 1 | 오픈채팅방 | [오픈채팅방](./프로그래머스/src/프로그래머스_01042022/오픈채팅방.java) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42888) | 01/04/2022 | 2hrs |
