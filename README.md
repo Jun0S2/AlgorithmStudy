@@ -93,5 +93,14 @@
 | 42 |부족한_금액_계산하기|[부족한_금액_계산하기](./프로그래머스/src/프로그래머스_02272022/부족한_금액_계산하기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/82612) | 02/27/2022 |
 | 43 |약수의_개수와_덧셈 |[약수의_개수와_덧셈](./프로그래머스/src/프로그래머스_02272022/약수의_개수와_덧셈.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/68935) | 02/27/2022 |
 | 44 |정수_제곱근_판별 |[정수_제곱근_판별](./프로그래머스/src/프로그래머스_02272022/정수_제곱근_판별.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12934) | 02/27/2022 |
+| 45 |[1차] 비밀지도|[[1차]비밀지도](./프로그래머스/src/프로그래머스_02282022/[1차]비밀지도.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12934) | 02/28/2022 |
+| 46 |x만큼_간격이_있는_n개의_숫자.cpp|[x만큼_간격이_있는_n개의_숫자](./프로그래머스/src/프로그래머스_02282022/x만큼_간격이_있는_n개의_숫자.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12954) | 02/28/2022 |
+| 47 |다트게임|[다트게임](./프로그래머스/src/프로그래머스_02282022/다트게임.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/17682) | 02/28/2022 |
+| 48 |문자열_내마음대로_정하기|[문자열_내마음대로_정하기](./프로그래머스/src/프로그래머스_02282022/문자열_내마음대로_정하기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12915) | 02/28/2022 |
+| 49 |실패율|[실패율](./프로그래머스/src/프로그래머스_02282022/실패율.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42889) | 02/28/2022 |
+| 50 |예산|[예산](./프로그래머스/src/프로그래머스_02282022/예산.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12982) | 02/28/2022 |
+| 51 |최대공약수와_최소공배수|[최대공약수와_최소공배수](./프로그래머스/src/프로그래머스_02282022/최대공약수와_최소공배수.cpp | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12940) | 02/28/2022 |
+| 52 |최소직사각형]|[최소직사각형](./프로그래머스/src/프로그래머스_02282022/최소직사각형.cpp | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/86491) | 02/28/2022 |
+| 53 |행렬의_덧셈]|[행렬의_덧셈](./프로그래머스/src/프로그래머스_02282022/행렬의_덧셈.cpp | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12950) | 02/28/2022 |
 
 </details>
