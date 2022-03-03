@@ -46,4 +46,13 @@
 <details>
   <summary>C++ 기초 문제</summary>
   
+  | no | problem | solution | problem link | date |
+|--- |--- |--- |--- |--- |
+| 1 | 신고 결과 받기 | [신고 결과 받기](./프로그래머스/src/프로그래머스_02242022/신고_결과_받기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/92334) | 02/24/2022 |
+  | 2 | 로또의 최고순위와 최저순위 | [신고 결과 받기](./프로그래머스/src/프로그래머스_02242022/로또의_최고순위와_최저순위.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/77484) | 02/24/2022 |
+  | 3 | 키패드누르기 | [키패드누르기](./프로그래머스/src/프로그래머스_02242022/키패드누르기_eleborated.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/67256) | 02/24/2022 |
+  | 4 | 완주하지 못한 선수 | [완주하지 못한 선수](./프로그래머스/src/프로그래머스_02242022/완주하지_못한_선수_map.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42576) | 02/24/2022 |
+  | 5| 숫자 문자열과 영단어| [숫자 문자열과 영단어](./프로그래머스/src/프로그래머스_02242022/숫자_문자열과_영단어_eleborated.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/81301) | 02/24/2022 |
+ | 6 | K번째 수 | [K번째 수](./프로그래머스/src/프로그래머스_02242022/K번째수.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42748) | 02/24/2022 |
+
 </details>
