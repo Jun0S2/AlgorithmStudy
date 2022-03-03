@@ -46,13 +46,24 @@
 <details>
   <summary>C++ 기초 문제</summary>
   
+  C++ 언어를 익히기 위해 프로그래머스의 LV1 문제 풀이
+  
   | no | problem | solution | problem link | date |
 |--- |--- |--- |--- |--- |
 | 1 | 신고 결과 받기 | [신고 결과 받기](./프로그래머스/src/프로그래머스_02242022/신고_결과_받기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/92334) | 02/24/2022 |
-  | 2 | 로또의 최고순위와 최저순위 | [신고 결과 받기](./프로그래머스/src/프로그래머스_02242022/로또의_최고순위와_최저순위.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/77484) | 02/24/2022 |
-  | 3 | 키패드누르기 | [키패드누르기](./프로그래머스/src/프로그래머스_02242022/키패드누르기_eleborated.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/67256) | 02/24/2022 |
-  | 4 | 완주하지 못한 선수 | [완주하지 못한 선수](./프로그래머스/src/프로그래머스_02242022/완주하지_못한_선수_map.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42576) | 02/24/2022 |
-  | 5| 숫자 문자열과 영단어| [숫자 문자열과 영단어](./프로그래머스/src/프로그래머스_02242022/숫자_문자열과_영단어_eleborated.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/81301) | 02/24/2022 |
- | 6 | K번째 수 | [K번째 수](./프로그래머스/src/프로그래머스_02242022/K번째수.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42748) | 02/24/2022 |
+| 2 | 로또의 최고순위와 최저순위 | [신고 결과 받기](./프로그래머스/src/프로그래머스_02242022/로또의_최고순위와_최저순위.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/77484) | 02/24/2022 |
+| 3 | 키패드누르기 | [키패드누르기](./프로그래머스/src/프로그래머스_02242022/키패드누르기_eleborated.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/67256) | 02/24/2022 |
+| 4 | 완주하지 못한 선수 | [완주하지 못한 선수](./프로그래머스/src/프로그래머스_02242022/완주하지_못한_선수_map.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42576) | 02/24/2022 |
+| 5| 숫자 문자열과 영단어| [숫자 문자열과 영단어](./프로그래머스/src/프로그래머스_02242022/숫자_문자열과_영단어_eleborated.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/81301) | 02/24/2022 |
+| 6 | K번째 수 | [K번째 수](./프로그래머스/src/프로그래머스_02242022/K번째수.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42748) | 02/24/2022 |
+  | 7 | 2016년| [2016년](./프로그래머스/src/프로그래머스_02252022/2016년.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12901) | 02/25/2022 |
+  | 8 | 가운데_글자_가져오기| [가운데_글자_가져오기](./프로그래머스/src/프로그래머스_02252022/가운데_글자_가져오기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12903) | 02/25/2022 |
+  | 9 | 내적| [내적](./프로그래머스/src/프로그래머스_02252022/내적.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/70128) | 02/25/2022 |
+  | 10 | 소수만들기| [소수만들기](./프로그래머스/src/프로그래머스_02242022/소수만들기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/12977) | 02/25/2022 |
+  | 11 | 없는숫자더하기.cpp | [없는숫자더하기.cpp](./프로그래머스/src/프로그래머스_02252022/없는숫자더하기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/86051) | 02/25/2022 |
+  | 12 | 음양더하기| [음양더하기](./프로그래머스/src/프로그래머스_02252022/음양더하기.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/76501) | 02/25/2022 |
+  | 13 | 체육복| [체육복](./프로그래머스/src/프로그래머스_02252022/체육복.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42862) | 02/25/2022 |
+  | 14 | 크레인_인형뽑기_게임| [크레인_인형뽑기_게임](./프로그래머스/src/프로그래머스_02252022/크레인_인형뽑기_게임.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/64061) | 02/25/2022 |
+ | 15 | 폰켓몬 | [폰켓몬](./프로그래머스/src/프로그래머스_02252022/폰켓몬_baccktracking.cpp) | [문제링크](https://programmers.co.kr/learn/courses/30/lessons/1845) | 02/25/2022 |
 
 </details>
