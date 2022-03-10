@@ -59,3 +59,30 @@ https://jaimemin.tistory.com/1521
 # 곱셈
 
 분할 정복으로 풀었다.
+
+# 1
+
+수학 문제인 것 같다.
+여러 블로그를 참고해서 여차여차 풀었지만 아직도 문제가 잘 이해되지 않는다. 비둘기집 원리가 왜 나오는건지..
+
+수학을 좀 더 공부해봐야할것같다..
+
+```cpp
+//(A+B)%C 와 (A%C + B%C) %C는 같다
+int main(){
+    ios::sync_with_stdio(0);
+	cin.tie(0);
+    int N;
+    while(cin>>N){
+        int cnt  =  1;
+        int temp = 1;
+        while(true)
+        {
+            if(temp % N ==0 )break;
+            cnt++;
+            temp = ((temp*10)+1)%N;//다음 자리수
+        }
+        cout<<cnt<<"\n";
+    }
+}
+```
