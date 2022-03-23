@@ -7,31 +7,29 @@ using namespace std;
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
+    int M, N, answer= 2000000000;
 
-    //입력
-    int N, M;
     cin>>N>>M;
     vector<int>input(N,0);
     for(int i = 0 ; i<N ; i++) cin>>input[i];
     sort(input.begin(), input.end());
 
     //연속된 수열 최소차이 구하기
-    int L=0, R=1, min = 200000001;
-    int diff;
-
+    int L=0, R=0;
     while(L<N && R<N)
     {
-       diff = input[R] - input[L];
+       int diff = input[R] - input[L];
        if(diff>=M)
        {
            if(diff==M) {cout<<M<<endl;return 0;}
-           min = diff < min ? diff : min;
+           answer = answer < diff ? answer : diff;
            L++;
        }
-       R++;
+       else R++;
+       
     }
 
-    cout<<min;
+    cout<<answer;
     return 0;
 
 }
