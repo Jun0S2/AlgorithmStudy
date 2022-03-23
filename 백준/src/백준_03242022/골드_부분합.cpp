@@ -22,30 +22,24 @@ int main(){
     }
 
     //변수
-    int minLen = 100000;//가장 짧은 길이
-    int sum ;//N만 넘으면 컷해도 됨(짧은 길이 구하니까!)
-    int cnt ;//길이 카운터
-    //연속된 수들 :투포인터(차례대로), 정렬 불가
-    for(int i = 0 ; i < input.size() -1 ; i++ )
-    {
-        // 초기화
-        sum = input[i];
-        cnt = 1;
-        
-        for(int j = i+1 ; j < input.size() ; j++)
-        {
-            sum += input[j];
-            cnt++;
-            if(sum >= S )
-            {
-                minLen = cnt < minLen ? cnt : minLen;
-                break;
-            }
-            if(cnt>=minLen)break; //의미가 없으니 가지치기
-        }
-    }
+    int minLen = N+1;//가장 짧은 길이
+    int sum = 0 ;
+    int R = 0, L = 0; //포인터
 
-    cout<<((minLen==100000)?0:minLen);
+
+    //연속된 수들 :투포인터(차례대로), 정렬 불가
+    while(L<=R)
+    {
+        int len = R-L;
+        if(sum >= S) //현재 포인터 합이 S보다 크거나 같으면, left땡겨준다
+        {
+            minLen = minLen < len ? minLen : len;
+            sum -= input[L++];// Left를 다음칸으로 넘김
+        }
+        else if(R == N) break;
+        else sum += input[R++]; // 다음 원소 더해줌
+    }
+    cout<<((minLen==N+1)?0:minLen);
 
 
     return 0;
