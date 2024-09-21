@@ -3,8 +3,10 @@
  * 순간이동 : 좌표 *2
  * 일반 이동 : 좌표 +-1
  * 일직선상이라는거...
- */ \
-#include<iostream>
+ * https://www.acmicpc.net/problem/1697
+ * Silver 1
+ */
+#include <iostream>
 #include <vector>
 #include <queue>
 #include <algorithm>
