@@ -5,7 +5,7 @@
  * @date 09.21.2024
  * @author June Park
  * 부분수열의합
- *
+ * https://www.acmicpc.net/submit/1182
  */
 using namespace std;
 int N, S;
