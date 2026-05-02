@@ -14,3 +14,17 @@ stack 없이
 def solution(n):
 return [int(x) for x in str(n)][::-1]
 이렇게도 가능하다고함;;;
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12933?language=python3
+def solution(n):
+digits = list(str(n)) # 한글자씩 리스트로 만듦
+digits.sort(reverse=True) # 리스트 sort
+return int(''.join(digits)) # ''.join(digits) -> Int type
+문화충격..
+
+math library : import math
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12937?language=python3
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12947?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/12954?language=python3
