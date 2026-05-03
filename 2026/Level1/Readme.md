@@ -1,58 +1,55 @@
 # Programmers Level 1 Study Log (Python)
 
-**Date:** 2026.05.02
-**Goal:** Level 1 문제 복습 + Python 기본 문법 정리
+**Date:** 2026.05.02 ~ 2026.05.03
+**Goal:** Level 1 문제 복습 + Python 기본 문법 및 활용 패턴 정리
 
 ---
 
-## TIL
+## Day 1 (2026.05.02)
 
-### 1. 문자열 → 정수 변환 (자동 처리)
+### 1. 문자열 → 정수 변환
 
-문제: [https://school.programmers.co.kr/learn/courses/30/lessons/12925](https://school.programmers.co.kr/learn/courses/30/lessons/12925)
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12925
 
 ```python
 int("1234")
 int("-1234")
 ```
 
-👉 Python은 +, - 포함 문자열도 자동 변환 가능
-👉 별도 파싱 없이 int()로 처리 가능
+- Python은 +, - 포함 문자열도 자동 변환 가능
+- 별도 파싱 없이 `int()` 사용
 
 ---
 
-### 2. 반복문 기본 패턴
+### 2. 약수의 합
 
-문제: [https://school.programmers.co.kr/learn/courses/30/lessons/12928](https://school.programmers.co.kr/learn/courses/30/lessons/12928)
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12928
 
 ```python
 for i in range(n):
     pass
-
-for _ in iterable:
-    pass
 ```
 
-👉 `_` : 값 안 쓰는 경우 관용 표현
+- 기본 반복문 패턴
 
 ---
 
-### 3. 리스트 뒤집기 (stack 없이)
+### 3. 자연수 뒤집어 배열로 만들기
 
-문제: [https://school.programmers.co.kr/learn/courses/30/lessons/12932](https://school.programmers.co.kr/learn/courses/30/lessons/12932)
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12932
 
 ```python
 def solution(n):
     return [int(x) for x in str(n)][::-1]
 ```
 
-👉 핵심: string → list → slicing reverse
+- string → list → reverse
 
 ---
 
-### 4. 숫자 내림차순 정렬
+### 4. 정수 내림차순으로 배치하기
 
-문제: [https://school.programmers.co.kr/learn/courses/30/lessons/12933](https://school.programmers.co.kr/learn/courses/30/lessons/12933)
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12933
 
 ```python
 def solution(n):
@@ -61,57 +58,221 @@ def solution(n):
     return int(''.join(digits))
 ```
 
-👉 sort(reverse=True) + join + int 패턴
-
 ---
 
-### 5. math library
+### 5. math 라이브러리
 
 ```python
 import math
 ```
 
-👉 제곱 / 루트 / 올림 / 내림 등 수학 함수
-
 ---
 
-### 6. f-string
+### 6. 서울에서 김서방 찾기
 
-문제: [https://school.programmers.co.kr/learn/courses/30/lessons/12919](https://school.programmers.co.kr/learn/courses/30/lessons/12919)
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12919
 
 ```python
 def solution(seoul):
     return f"김서방은 {seoul.index('Kim')}에 있다"
 ```
 
-👉 문자열 안에 변수 바로 삽입 가능
-
 ---
 
-### 7. 문자열 슬라이싱 + padding
+### 7. 핸드폰 번호 가리기
 
-문제: [https://school.programmers.co.kr/learn/courses/30/lessons/12948](https://school.programmers.co.kr/learn/courses/30/lessons/12948)
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12948
 
 ```python
 def solution(phone_number):
     return phone_number[-4:].rjust(len(phone_number), "*")
 ```
 
-👉 [-4:] + rjust = 마스킹 패턴
+---
+
+## Day 2 (2026.05.03)
+
+### 1. 수박수박수박수박수박수?
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12922
 
 ---
 
-### 8. 핵심 정리
+### 2. 제일 작은 수 제거하기
 
-- int(), str(), list() 변환 자유롭게 사용
-- slicing ([::-1], [-4:]) 매우 중요
-- join / sort / index 자주 사용
-- Python은 “구현”보다 “내장함수 활용”이 핵심
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12935
+
+```python
+min(arr)
+```
 
 ---
 
-## 🚀 Summary
+### 3. 내적
 
-- 문자열 ↔ 숫자 ↔ 리스트 변환 패턴 숙지
-- slicing + join + sort 조합이 Level 1 핵심
-- 직접 구현보다 Python built-in 활용이 중요
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/70128
+
+```python
+def solution(a, b):
+    return sum(x * y for x, y in zip(a, b))
+```
+
+---
+
+### 4. 약수의 개수와 덧셈
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/77884
+
+```python
+import math
+
+def solution(left, right):
+    answer = 0
+    for i in range(left, right+1):
+        if int(math.sqrt(i)) ** 2 == i:
+            answer -= i
+        else:
+            answer += i
+    return answer
+```
+
+---
+
+### 5. 문자열 내림차순으로 배치하기
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12917
+
+```python
+def solution(s):
+    return ''.join(sorted(s, reverse=True))
+```
+
+---
+
+### 6. 부족한 금액 계산하기
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/82612
+
+```python
+def solution(price, money, count):
+    total = price * (count * (count + 1) // 2)
+    return max(0, total - money)
+```
+
+---
+
+### 7. 문자열 다루기 기본
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12918
+
+```python
+s.isdigit()
+```
+
+---
+
+### 8. 행렬의 덧셈
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12950
+
+```python
+def solution(arr1, arr2):
+    return [[x + y for x, y in zip(a, b)] for a, b in zip(arr1, arr2)]
+```
+
+---
+
+### 9. 직사각형 별찍기
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12969
+
+---
+
+### 10. 같은 숫자는 싫어
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12906
+
+---
+
+### 11. 최대공약수와 최소공배수
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12940
+
+```python
+import math
+
+def solution(n, m):
+    return [math.gcd(n, m), (n * m) // math.gcd(n, m)]
+```
+
+---
+
+### 12. 크기가 작은 부분 문자열
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/147355
+
+```python
+substrings = [t[i:i+k] for i in range(len(t) - k + 1)]
+```
+
+---
+
+### 13. 두 개 뽑아서 더하기
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/68644
+
+```python
+from itertools import combinations
+
+def solution(numbers):
+    return sorted(set(sum(c) for c in combinations(numbers, 2)))
+```
+
+---
+
+### 14. 시저 암호
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/12926
+
+```python
+ord()
+chr()
+```
+
+---
+
+### 15. 가장 가까운 같은 글자
+
+문제: https://school.programmers.co.kr/learn/courses/30/lessons/142086
+
+```python
+def solution(s):
+    result = []
+    last = {}
+
+    for i, char in enumerate(s):
+        if char in last:
+            result.append(i - last[char])
+        else:
+            result.append(-1)
+        last[char] = i
+
+    return result
+```
+
+---
+
+## 핵심 패턴 정리
+
+```python
+sum(x*y for x,y in zip(a,b))
+sorted(s, reverse=True)
+set(arr)
+combinations(numbers, 2)
+s.isdigit()
+math.gcd(n, m)
+s[:idx+1][::-1]
+t[i:i+k]
+```
+
+정답률 70프로까지만 풀기
