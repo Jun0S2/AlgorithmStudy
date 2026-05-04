@@ -275,4 +275,24 @@ s[:idx+1][::-1]
 t[i:i+k]
 ```
 
-정답률 70프로까지만 풀기
+https://school.programmers.co.kr/learn/courses/30/lessons/12982?language=python3
+sort 문제. 콤비네이션으로 접근햇다가 시간초과
+
+https://school.programmers.co.kr/learn/courses/30/lessons/131705?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/12930?language=python3
+
+https://school.programmers.co.kr/learn/courses/30/lessons/86491?language=python3
+
+https://school.programmers.co.kr/learn/courses/30/lessons/134240
+https://school.programmers.co.kr/learn/courses/30/lessons/42748?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/81301?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/132267
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12915?language=python3
+c++에서는compare override했엇는데..
+def solution(strings, n):
+return sorted(strings, key=lambda x: (x[n], x))
+이렇게하면.. sorted(글자, key = )
+key=lambda x: (x[n], x)
+x[n] => n번째 글자로 먼저 정렬
+x => 만약 같으면 전체 문자열로 사전순 정렬
