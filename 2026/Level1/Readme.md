@@ -296,3 +296,23 @@ return sorted(strings, key=lambda x: (x[n], x))
 key=lambda x: (x[n], x)
 x[n] => n번째 글자로 먼저 정렬
 x => 만약 같으면 전체 문자열로 사전순 정렬
+
+https://school.programmers.co.kr/learn/courses/30/lessons/1845?language=python3
+reduced = set()
+set(existingarr)
+-> 중복제거
+
+https://school.programmers.co.kr/learn/courses/30/lessons/176963
+dictionary
+dic = dict(zip(name, yearning))
+
+https://school.programmers.co.kr/learn/courses/30/lessons/138477
+billboard.pop(0)
+array의 첫번째 요소 없애기.
+
+https://school.programmers.co.kr/learn/courses/30/lessons/17681?language=python3
+bin(number) : to binary
+anded = bin(arr1[x] | arr2[x])[2:] # 0b 제거
+anded = anded.rjust(n, '0') # 문자열 길이를 n으로 맞추되 왼쪽에 0 추가
+
+https://school.programmers.co.kr/learn/courses/30/lessons/159994
