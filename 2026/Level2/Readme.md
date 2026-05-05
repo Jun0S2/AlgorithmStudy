@@ -17,3 +17,44 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12951?language=python3
 https://school.programmers.co.kr/learn/courses/30/lessons/12941?language=python3
 https://school.programmers.co.kr/learn/courses/30/lessons/12909?language=python3
 https://school.programmers.co.kr/learn/courses/30/lessons/70129?language=python3
+
+```python
+def solution(s):
+zeros = 0
+cnt = 0
+
+    while(len(s)>1):
+        cnt += 1
+        zeros += s.count("0")
+        s = s.replace("0","") # string은 immutable이라 새로 assign
+        # 0 제거 후 길이를 이진수로 변환해야함
+        s = bin(len(s))[2:]
+
+    return [cnt, zeros] #이진 변환 횟수, 제거된 0의 개수
+```
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12924?language=python3
+투포인터
+
+```python
+def solution(n):
+    answer = 0
+    start, end = 1, 1
+    total = 1
+
+    while start <= n:
+        if total == n:
+            answer += 1
+            total -= start
+            start += 1
+
+        elif total < n:
+            end += 1
+            total += end
+
+        else:
+            total -= start
+            start += 1
+
+    return answer
+```
