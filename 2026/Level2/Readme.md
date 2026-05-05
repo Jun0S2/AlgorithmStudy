@@ -12,3 +12,8 @@ return f"{min(nums)} {max(nums)}"
 # max(nums) → 최대값
 # f"{min} {max}" → 문자열로 합치기
 ```
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12951?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/12941?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/12909?language=python3
+https://school.programmers.co.kr/learn/courses/30/lessons/70129?language=python3
