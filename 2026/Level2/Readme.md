@@ -58,3 +58,7 @@ def solution(n):
 
     return answer
 ```
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12911?language=python3
+바로 str에서 count('char') 가능
+return bin(x).count('1')
